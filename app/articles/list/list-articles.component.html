@@ -1,0 +1,8 @@
+<div class="container">
+    <div *ngFor="let article of listArticles" class="card card-block" (click)="goToArticle(article)">
+        <h3 [innerHTML]="article._title" class="card-header card-title">
+        </h3>
+        <div [innerHTML]="article._body" class="card-text">
+        </div>
+    </div>
+</div>

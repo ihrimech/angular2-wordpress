@@ -1,0 +1,40 @@
+div.h-navbar{
+    margin-bottom: 0;
+    background-color: @darkGreen;
+    border-color: @darkGreen;
+    padding: 12px;
+    position: fixed;
+    width: 100%;
+    margin: 0;
+    height: @heightnavigation;
+    .navbar-right.nav.navbar-nav{
+      li > a{
+        color: @textGreen;
+        font-family: 'Roboto Slab';
+        font-size: 16px;
+        cursor: pointer;
+        &:focus, &:hover{
+          color: @textFocusGreen;
+        }
+        &.active {
+            background-color: #33574C;
+            border-radius: 10px;
+        }
+      }
+    }
+    .logo-site{
+        margin: 5px;
+        margin-right: 20px;
+        cursor: pointer;
+    }
+    // Mobile
+    .mobile-menu-visible {
+        display: block;
+        background-color: @darkGreen;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: @heightnavigation;
+        border: none;
+    }
+}

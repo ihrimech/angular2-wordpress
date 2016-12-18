@@ -1,0 +1,36 @@
+html, body, div, ul, li, span{
+  font-family: 'Roboto', 'Roboto Slab', Arial, Helvetica, sans-serif;
+}
+h1 {
+  color: #369;
+  font-size: 250%; 
+}
+h1, h2, h3, h4, label{
+  font-family: 'Roboto Slab';
+}
+.main-content{
+  padding-top: @heightnavigation; 
+}
+//buttons 
+.btn-primary {
+    color: @white;
+    background-color: @mainGreen;
+    border-color: @mainGreen;
+    &:hover, &:focus{
+        background-color: @darkGreen;
+        border-color: @darkGreen;
+    }
+}
+// Media queries
+
+/* Extra Small */
+@media(max-width:767px){}
+
+/* Small */
+@media(min-width:768px) and (max-width:991px){}
+
+/* Medium */
+@media(min-width:992px) and (max-width:1199px){}
+
+/* Large */
+@media(min-width:1200px){}
