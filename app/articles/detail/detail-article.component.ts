@@ -20,7 +20,6 @@ export class DetailArticleComponent implements OnInit {
             let slugArticle = this.route.params['_value']['name-article'];
             this.articleService.getArticleBySlug(slugArticle)
                 .subscribe(article => {
-                    console.log(article);
                     this.articleDetail = new DetailArticle(article[0].title.rendered, article[0].content.rendered, article[0].slug)
                 })
         }

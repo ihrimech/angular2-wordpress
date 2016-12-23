@@ -3,6 +3,7 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 import { CATEGORIES } from './../../config/config';
 import { ArticlesService } from './../articles.service';
 import { DetailArticle } from './../article';
+
 @Component({
     selector: 'list-articles',
     templateUrl: 'app/articles/list/list-articles.component.html'
@@ -15,6 +16,7 @@ export class ListArticlesComponent implements OnInit {
     ) { }
     public listCategories = CATEGORIES;
     public listArticles: [DetailArticle];
+    public currentCategory : string ;
 
     ngOnInit() {
         this.route.params.subscribe(param => {
@@ -22,6 +24,7 @@ export class ListArticlesComponent implements OnInit {
                 let categorySlug = param['category-slug'];
                 let idCategory = this.listCategories.filter( (category) => {
                     if(categorySlug == category.slug){
+                        this.currentCategory = category.name;
                         this.setListArticle(category.id);
                     }
                 });

@@ -8,17 +8,8 @@
 </div>
 <div class="collapse navbar-collapse" [ngClass]="{'mobile-menu-visible': showMobileMenu}" >
     <ul class="nav navbar-nav navbar-right">
+        <li *ngFor="let category of categories">
+            <a routerLink="list-articles/{{category.slug}}" routerLinkActive="active">{{category.name}}</a>
         <li>
-            <a routerLink="/list-articles/front-end" routerLinkActive="active">Front-End</a>
-        <li>
-        <li>
-            <a routerLink="/list-articles/back-end" routerLinkActive="active">Back-End</a>
-        <li>
-        <li>
-            <a routerLink="/list-articles/server-side" routerLinkActive="active">Server</a>
-        <li>
-        <li>
-            <a routerLink="/list-articles/photography" routerLinkActive="active">Photography</a>
-        </li>
     </ul>
 </div>

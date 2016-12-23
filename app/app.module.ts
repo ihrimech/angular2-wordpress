@@ -18,6 +18,7 @@ import { NotFoundComponent } from './transverse/not-found.component';
 
 import { CardCategoryService } from './transverse/card-category/card-category.service';
 import { ArticlesService } from './articles/articles.service';
+import { MainMenuService } from './transverse/header/main-menu/main-menu.service';
 
 @NgModule({
   imports:[ 
@@ -39,7 +40,8 @@ import { ArticlesService } from './articles/articles.service';
     NotFoundComponent
   ],
   providers: [
-    CardCategoryService, 
+    CardCategoryService,
+    MainMenuService, 
     ArticlesService
   ],
   bootstrap:    [ AppComponent ]
