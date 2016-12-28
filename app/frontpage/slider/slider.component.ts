@@ -27,14 +27,15 @@ export class SliderComponent implements OnInit {
             title:"Photography",
             url:"assets/img/venise_slider.jpg",
             meta:"Photo in black and white of a girl sitting by a river in venise",
-            description:"Looking for a set of free photographies ?"
-
+            description:"Looking for a set of free photographies ?",
+            link:"list-articles/photography"
         },
         {
             title:"Tech",
             url:"assets/img/angular_slider.jpg",
             meta:"most technologies that are aborded in the website",
-            description:"Some discoveries about the web techs"
+            description:"Some discoveries about the web techs",
+            link:"list-articles/back-end"
         }
     ];
     
