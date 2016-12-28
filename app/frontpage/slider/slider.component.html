@@ -1,6 +1,6 @@
 <div id="myCarousel" class="carousel row" data-ride="carousel">
     <div *ngFor="let image of images; let i = index;"  class="slider-item" role="listbox">
-        <div class="item-caroussel" [ngClass]="{'fade': indexImgToShow === i}">
+        <div class="item-caroussel"  [@imgState]="image.state">
             <img class="img-responsive" src="{{image.url}}" alt="{{image.text}}" title="{{image.title}}">
             <div class="inner-slider">
                 <div class="text-block">{{image.description}}</div>

@@ -14,25 +14,41 @@ export class ListArticlesComponent implements OnInit {
         private route: ActivatedRoute,
         private articleServices: ArticlesService
     ) { }
-    public listCategories = CATEGORIES;
     public listArticles: [DetailArticle];
     public currentCategory : string ;
+    public secondaryMenu: any;
 
     ngOnInit() {
+        // get list of articles corresponding to the actual page
         this.route.params.subscribe(param => {
             if(param['category-slug'] != null){
+                // from the URL, the last parameter correponds to the slug of the category.
+                // query from it
                 let categorySlug = param['category-slug'];
-                let idCategory = this.listCategories.filter( (category) => {
+                let categories = JSON.parse(localStorage.getItem('categories'));
+                let idCategory = categories.filter( (category) => {
                     if(categorySlug == category.slug){
                         this.currentCategory = category.name;
-                        this.setListArticle(category.id);
+                        this.setListArticles(category.id);
+                        if(category.parent === 0) {
+                            // look for child categories
+                            this.setSecondaryMenu(category.id, categories);
+                        }
                     }
                 });
             };
         })
      }
+     setSecondaryMenu(id: number, categories: any){
+         let childrenEntries = categories.filter( (category: any) => {
+             if(category.parent === id){
+                 return category;
+             }
+         })
+         this.secondaryMenu = childrenEntries;
+     }
 
-     setListArticle(id: number){
+     setListArticles(id: number){
          this.articleServices.getListArticles(id)
             .subscribe(listArticles => {
                 let listArticleTemp = listArticles.map((article: any) => {
@@ -42,8 +58,11 @@ export class ListArticlesComponent implements OnInit {
             })
      }
 
+     redirectTo(slug: string){
+         this.router.navigate(['/list-articles', slug]);
+     }
+
      goToArticle(article: DetailArticle){
-         console.log(article)
          this.router.navigate(['/article', article._slug]);
      }
 }

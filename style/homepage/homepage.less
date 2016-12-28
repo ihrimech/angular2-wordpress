@@ -1,41 +1,41 @@
 .carousel{
     position: relative;
-    .item-caroussel{
-        // position: absolute;
-        // max-width: 1865px;
-        opacity: 1;
-        transition: opacity .35s linear;
-        -webkit-transition: opacity .35s linear;
-        -o-transition: opacity .35s linear;
-        -webkit-transition-delay: .10s; /* Safari */
-        transition-delay: .10s;
-        overflow:hidden;
-        max-height:800px;
-        height:auto;
-        &.fade{
-            visibility:hidden;
-            height:0;
-            opacity: 0;
-            // transition: opacity .35s linear;
-            // -webkit-transition: opacity .35s linear;
-            // -o-transition: opacity .35s linear;
+    .slider-item{
+        display: inline-block;
+        @media (max-width: 1050px) {
+            min-height: 700px;
         }
-        .inner-slider{
+        @media  (min-width: 1051px) {
+            min-height: 800px;
+        }
+        .item-caroussel{
             position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            text-align: center;
-            z-index: 2;
-            width: 100%;
-            min-height: 260px;
-            .text-block{
-                font-size: 40px;
-                line-height: 67px;
-                font-weight: 500;
-                padding-bottom: 10px;
-                font-family: 'Roboto Slab';
-                color: white;
+            opacity: 1;
+            overflow:hidden;
+            max-height:800px;
+            height:auto;
+            &.fade{
+                visibility:hidden;
+                height:0;
+                opacity: 0;
+            }
+            .inner-slider{
+                position: absolute;
+                top: 50%;
+                left: 0;
+                right: 0;
+                text-align: center;
+                z-index: 2;
+                width: 100%;
+                min-height: 260px;
+                .text-block{
+                    font-size: 40px;
+                    line-height: 67px;
+                    font-weight: 500;
+                    padding-bottom: 10px;
+                    font-family: 'Roboto Slab';
+                    color: white;
+                }
             }
         }
     }
