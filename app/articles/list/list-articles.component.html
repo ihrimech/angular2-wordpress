@@ -1,11 +1,13 @@
 <div class="container">
-    <div class="row">
-        {{currentCategory}}
-    </div>
-    <div *ngFor="let article of listArticles" class="card card-block" (click)="goToArticle(article)">
-        <h3 [innerHTML]="article._title" class="card-header card-title">
-        </h3>
-        <div [innerHTML]="article._body" class="card-text">
-        </div>
-    </div>
+    <ul class="list-group borderless">
+        <li class="nav-header title-navigation">
+            Category : {{currentCategory}}
+        </li>
+        <li *ngFor="let article of listArticles" class="list-group-item card card-block" (click)="goToArticle(article)">
+            <h3 [innerHTML]="article._title" class="card-header card-title">
+            </h3>
+            <div [innerHTML]="article._body" class="card-text">
+            </div>
+        </li>
+    </ul>
 </div>
