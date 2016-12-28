@@ -13,3 +13,10 @@
         <li>
     </ul>
 </div>
+<div *ngIf="childrenCategory" class="collapse navbar-collapse" [ngClass]="{'mobile-menu-visible': showMobileMenu}" >
+    <ul class="nav navbar-nav navbar-right">
+        <li *ngFor="let category of categories">
+            <a routerLink="list-articles/{{category.slug}}" routerLinkActive="active">{{category.name}}</a>
+        <li>
+    </ul>
+</div>

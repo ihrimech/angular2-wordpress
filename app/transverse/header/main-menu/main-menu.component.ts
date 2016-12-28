@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { MainMenuService } from './main-menu.service';
 
 @Component({
@@ -7,10 +8,13 @@ import { MainMenuService } from './main-menu.service';
 })
 export class MainMenuComponent implements OnInit {
     constructor(
-        private mainMenuService : MainMenuService
+        private mainMenuService : MainMenuService,
+        private route: ActivatedRoute
     ) { }
     public showMobileMenu:boolean = false;
     public categories;
+    public childrenCategory: boolean = false;
+    public currentCategory: string = "";
 
     ngOnInit() { 
         this.mainMenuService.getListCategories().subscribe(
@@ -19,11 +23,16 @@ export class MainMenuComponent implements OnInit {
             }
         );
     }
+
     
     setCategoryTree(categories :any){
+        let childrenCategories = [];
+        // filter on parent categories
         let parentCategories = categories.filter((category: any) => {
             if(category.parent === 0){
                 return category;
+            }else {
+                childrenCategories.push(category);
             }
         });
         this.categories = parentCategories;

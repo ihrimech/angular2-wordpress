@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, Params } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CATEGORIES } from './../../config/config';
 import { ArticlesService } from './../articles.service';
 import { DetailArticle } from './../article';
@@ -27,25 +27,14 @@ export class ListArticlesComponent implements OnInit {
                 let categorySlug = param['category-slug'];
                 let categories = JSON.parse(localStorage.getItem('categories'));
                 let idCategory = categories.filter( (category) => {
+                    // retrieve articles from category
                     if(categorySlug == category.slug){
                         this.currentCategory = category.name;
                         this.setListArticles(category.id);
-                        if(category.parent === 0) {
-                            // look for child categories
-                            this.setSecondaryMenu(category.id, categories);
-                        }
                     }
                 });
             };
         })
-     }
-     setSecondaryMenu(id: number, categories: any){
-         let childrenEntries = categories.filter( (category: any) => {
-             if(category.parent === id){
-                 return category;
-             }
-         })
-         this.secondaryMenu = childrenEntries;
      }
 
      setListArticles(id: number){
@@ -57,11 +46,6 @@ export class ListArticlesComponent implements OnInit {
                 this.listArticles = listArticleTemp;
             })
      }
-
-     redirectTo(slug: string){
-         this.router.navigate(['/list-articles', slug]);
-     }
-
      goToArticle(article: DetailArticle){
          this.router.navigate(['/article', article._slug]);
      }

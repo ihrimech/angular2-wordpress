@@ -1,10 +1,3 @@
-<div class="row">
-    <ul>
-        <li *ngFor="let category of secondaryMenu">
-            <a (click)="redirectTo(category.slug)" [ngClass]="{'active': (currentCategory == category.name)}" >{{category.name}}</a>
-        </li>
-    </ul>
-</div>
 <div class="container">
     <div class="row">
         {{currentCategory}}
