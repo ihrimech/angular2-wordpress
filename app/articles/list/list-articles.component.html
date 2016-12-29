@@ -1,9 +1,13 @@
 <div class="container">
     <ul class="list-group borderless">
-        <li class="nav-header title-navigation">
+        <li *ngIf="!showLastArticles" class="nav-header title-navigation">
             Category : {{currentCategory}}
         </li>
-        <li *ngFor="let article of listArticles" class="list-group-item card card-block" (click)="goToArticle(article)">
+        <li *ngIf="showLastArticles" class="nav-header title-navigation">
+            Last posts 
+        </li>
+        
+        <li *ngFor="let article of listArticles" class="list-group-item card card-block content-card" (click)="goToArticle(article)">
             <h3 [innerHTML]="article._title" class="card-header card-title">
             </h3>
             <div [innerHTML]="article._body" class="card-text">

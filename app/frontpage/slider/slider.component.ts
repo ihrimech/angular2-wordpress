@@ -54,7 +54,6 @@ export class SliderComponent implements OnInit {
             }
             // show next image
             this.images[this.indexImgToShow].state = "in";
-            console.log(this.images) 
         })
     }
 }

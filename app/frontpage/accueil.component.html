@@ -1,6 +1,13 @@
 <div class="site">
     <slider *ngIf="displayOptions.slider" class="hidden-xs"></slider>
-    <div *ngIf="displayOptions.lastArticles"> LAST ARTICLES</div>
+    <div *ngIf="displayOptions.lastArticles">
+        <div class="intro-text">
+            Welcome to H's Blog. You'll find here some tech tips, tutorials, and tools. 
+            Also there is a photography section in which I'll show some of the products of my passion.
+            I hope you enjoy It.
+        </div>
+        <list-articles [showLastArticles]="true"></list-articles>
+    </div>
     <div *ngIf="displayOptions.cardCategory" class="container">
         <card-category [numberCards]="3" ></card-category>
     </div>

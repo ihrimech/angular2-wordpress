@@ -33,6 +33,18 @@ export class ArticlesService {
             .catch(this.handleError);
 
     }
+     /**
+     * Get the list of last articles published
+     */
+    public getLastArticles(): Observable<any>{
+        let params = new URLSearchParams();
+        params.set('per_page', '5');
+        return this.http
+            .get(this.URLbackend + "/" + PATHSSERVICES.posts.path,  { search: params })
+            .map(this.extractData)
+            .catch(this.handleError);
+
+    }
 
     private extractData(res: Response) {
         let data = JSON.parse(res['_body']);
