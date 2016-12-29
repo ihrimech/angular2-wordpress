@@ -1,6 +1,7 @@
 <div class="site">
-    <slider class="hidden-xs"></slider>
-    <div class="container">
+    <slider *ngIf="displayOptions.slider" class="hidden-xs"></slider>
+    <div *ngIf="displayOptions.lastArticles"> LAST ARTICLES</div>
+    <div *ngIf="displayOptions.cardCategory" class="container">
         <card-category [numberCards]="3" ></card-category>
     </div>
 </div>
