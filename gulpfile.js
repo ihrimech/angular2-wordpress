@@ -92,7 +92,7 @@ gulp.task('copy_assets', function() {
         .pipe(gulp.dest('./public_html'));
 });
 gulp.task('copy_style', function() {
-     return gulp.src(['./style/style.css'], {base:"."})
+     return gulp.src(['./style.css'], {base:"."})
         .pipe(gulp.dest('./public_html'));
 });
 gulp.task('copy_img', function() {
