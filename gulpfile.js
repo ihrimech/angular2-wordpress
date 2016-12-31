@@ -51,7 +51,7 @@ var vendorBundleName = bundleHash + '.vendor.bundle.js';
 
 // This is main task for production use
 gulp.task('production', function(done) {
-    runSequence('clean','less', 'compile_ts', 'bundle', 'copy_img', 'copy_style', 'copy_assets', function() {
+    runSequence('clean','less', 'compile_ts', 'bundle', 'copy_img', 'copy_style', 'copy_assets', 'copy_html', function() {
         done();
     });
 });
@@ -87,8 +87,12 @@ gulp.task('compile_ts', ['clean:ts'], shell.task([
     'tsc'
 ]));
 
-gulp.task('copy_assets', function() {
+gulp.task('copy_html', function() {
      return gulp.src(['./app/**/*.html'], {base:"."})
+        .pipe(gulp.dest('./public_html'));
+});
+gulp.task('copy_assets', function() {
+     return gulp.src(['./assets/**/*'], {base:"."})
         .pipe(gulp.dest('./public_html'));
 });
 gulp.task('copy_style', function() {
