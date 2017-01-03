@@ -1,5 +1,5 @@
 dist
 *.css
 node_modules
-app/config/**
+app/config/**/*
 public_html/**/*
