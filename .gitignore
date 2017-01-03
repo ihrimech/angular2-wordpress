@@ -1,4 +1,5 @@
 dist
 *.css
-app/
 node_modules
+app/config/**
+public_html/**/*
