@@ -7,7 +7,8 @@ import { configURLs, PATHSSERVICES } from './../config/config';
 export class ArticlesService {
     private URLbackend = configURLs.development.backend.scheme + "://"
                 + configURLs.development.backend.url + ":"
-                + configURLs.development.backend.port;
+                + configURLs.development.backend.port
+                + configURLs.development.backend.path;
     constructor(
         private http : Http
     ) { }

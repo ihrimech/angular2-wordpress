@@ -1,5 +1,5 @@
 export const configDisplay = {
     slider: false,
     lastArticles: true,
-    cardCategory: true,
+    cardCategory: false,
 }

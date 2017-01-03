@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CATEGORIES } from './../../config/config';
 import { ArticlesService } from './../articles.service';
 import { DetailArticle } from './../article';
 
